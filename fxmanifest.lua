@@ -3,11 +3,26 @@ games { 'gta5' }
 
 author "Swkeep#7049"
 
-shared_script { 'config.lua', 'shared/shared_main.lua' }
+shared_scripts {
+     '@qb-core/shared/locale.lua',
+     'locale/en.lua',
+     'config.lua',
+     'shared/shared.lua'
+}
 
-client_scripts { 'client/client_main.lua', 'client/client_lib/client_lib_entry.lua' }
+client_scripts {
+     -- '@PolyZone/client.lua',
+     -- '@PolyZone/BoxZone.lua',
+     'client/client_main.lua',
+     'client/lib/c_lib.lua',
+     'client/menu/menu.lua',
+     'client/target/target.lua',
+}
 
-server_script { 'server/server_main.lua', 'server/server_lib/server_lib_entry.lua' }
+server_script {
+     'server/server_main.lua',
+     'server/lib/s_lib.lua'
+}
 
 -- dependency 'oxmysql'
 

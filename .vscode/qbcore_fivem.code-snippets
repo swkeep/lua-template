@@ -12,10 +12,10 @@
     "scope": "lua",
     "prefix": "createCallbackQbcore",
     "body": [
-      "QBCore.Functions.CreateCallback('${1:eventName}', function(source, cb)",
-      "\tlocal player = QBCore.Functions.GetPlayer(source)",
+      "QBCore.Functions.CreateCallback('${WORKSPACE_NAME}:${TM_DIRECTORY/^.+\\\\(.*)$/$1/}:${1:eventName}', function(source, cb)",
+      "\tlocal Player = QBCore.Functions.GetPlayer(source)",
       "${2}",
-      "\tcb(player)",
+      "\tcb(Player)",
       "end)"
     ]
   },
@@ -47,20 +47,11 @@
   },
   "TriggerClientEvent": {
     "prefix": "triggerClientEvent",
-    "body": [
-      "TriggerClientEvent('${1:eventName}', ${2:playerId}, function(${3})",
-      "\t${4}",
-      "end)"
-    ]
+    "body": ["TriggerClientEvent('${1:eventName}', ${2:playerId}, ${3:data})"]
   },
   "TriggerServerEvent": {
     "prefix": "triggerServerEvent",
-    "body": [
-      "TriggerServerEvent('${1:eventName}', function(${3})",
-      "\tlocal src = source",
-      "\t${4}",
-      "end)"
-    ]
+    "body": ["TriggerServerEvent('${1:eventName}', ${2:data} )"]
   },
   "createClass": {
     "prefix": "createClass",
