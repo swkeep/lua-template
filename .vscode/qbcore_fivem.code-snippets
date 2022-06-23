@@ -133,5 +133,45 @@
     "body": [
       "local ped = CreatePedInsideVehicle(${1:vehicle}, ${2:pedType}, ${3:modelHash}, ${4:seat}, ${5:isNetwork}, ${6:thisScriptCheck})"
     ]
+  },
+  "resourcestart": {
+    "scope": "lua",
+    "prefix": "resourcestart",
+    "body": [
+      "AddEventHandler('onResourceStart', function(resourceName)",
+      "\tif (GetCurrentResourceName() ~= resourceName) then return end",
+      "${2}",
+      "\tcb(Player)",
+      "end)"
+    ]
+  },
+  "resourcestop": {
+    "scope": "lua",
+    "prefix": "resourcestop",
+    "body": [
+      "AddEventHandler('onResourceStop', function(resourceName)",
+      "\tif (GetCurrentResourceName() ~= resourceName) then return end",
+      "${2}",
+      "\tcb(Player)",
+      "end)"
+    ]
+  },
+  "playerunload": {
+    "scope": "lua",
+    "prefix": "playerunload",
+    "body": [
+      "AddEventHandler('QBCore:Client:OnPlayerUnload', function(resourceName)",
+      "${2}",
+      "end)"
+    ]
+  },
+  "playerload": {
+    "scope": "lua",
+    "prefix": "playerload",
+    "body": [
+      "AddEventHandler('QBCore:Client:OnPlayerLoaded', function(resourceName)",
+      "${2}",
+      "end)"
+    ]
   }
 }
